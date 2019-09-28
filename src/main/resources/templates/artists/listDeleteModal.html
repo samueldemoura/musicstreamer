@@ -1,0 +1,16 @@
+<!--TABLE-->
+<div class="table-responsive" id="containerFields" data-th-fragment="artist-entityModalConfirmBody" data-th-with="collectionLink=${@linkBuilder.of('ArtistsCollectionThymeleafController')},itemLink=${@linkBuilder.of('ArtistsItemThymeleafController')}">
+    <table id="artist-entity-table-item-to-remove" data-data-load-url="${collectionLink.to('datatablesByIdsIn')}">
+      <thead>
+        <tr>
+          <th data-data="name" data-th-text="#{label_artist_name}">name</th>
+        </tr>
+      </thead>
+      <tbody data-th-remove="all">
+        <tr>
+          <td>name</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- /TABLE -->

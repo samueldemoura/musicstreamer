@@ -1,0 +1,20 @@
+<!--TABLE-->
+<div class="table-responsive" id="containerFields" data-th-fragment="track-entityModalConfirmBody" data-th-with="collectionLink=${@linkBuilder.of('TracksCollectionThymeleafController')},itemLink=${@linkBuilder.of('TracksItemThymeleafController')}">
+    <table id="track-entity-table-items-to-remove-batch" data-data-load-url="${collectionLink.to('datatablesByIdsIn')}">
+      <thead>
+        <tr>
+          <th data-data="title" data-th-text="#{label_track_title}">title</th>
+          <th data-data="album" data-th-text="#{label_track_album}">album</th>
+          <th data-data="artist" data-th-text="#{label_track_artist}">artist</th>
+        </tr>
+      </thead>
+      <tbody data-th-remove="all">
+        <tr>
+          <td>title</td>
+          <td>album</td>
+          <td>artist</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- /TABLE -->
