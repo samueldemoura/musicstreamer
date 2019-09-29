@@ -520,6 +520,12 @@ privileged aspect AlbumsCollectionThymeleafController_Roo_Thymeleaf {
         else if (columnName.equals("title")) {
             builder.addColumn(getMessageSource().getMessage("label_album_title", null, "Title", locale), "title", String.class.getName(), 100);
         }
+        else if (columnName.equals("description")) {
+            builder.addColumn(getMessageSource().getMessage("label_album_description", null, "Description", locale), "description", String.class.getName(), 100);
+        }
+        else if (columnName.equals("thumbnail")) {
+            builder.addColumn(getMessageSource().getMessage("label_album_thumbnail", null, "Thumbnail", locale), "thumbnail", String.class.getName(), 100);
+        }
         }
         catch (ColumnBuilderException e) {
             String errorMessage = getMessageSource().getMessage("error_exportingErrorException", 

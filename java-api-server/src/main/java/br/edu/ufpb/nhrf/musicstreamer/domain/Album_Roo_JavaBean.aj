@@ -91,6 +91,46 @@ privileged aspect Album_Roo_JavaBean {
     }
     
     /**
+     * Gets description value
+     * 
+     * @return String
+     */
+    public String Album.getDescription() {
+        return this.description;
+    }
+    
+    /**
+     * Sets description value
+     * 
+     * @param description
+     * @return Album
+     */
+    public Album Album.setDescription(String description) {
+        this.description = description;
+        return this;
+    }
+    
+    /**
+     * Gets thumbnail value
+     * 
+     * @return String
+     */
+    public String Album.getThumbnail() {
+        return this.thumbnail;
+    }
+    
+    /**
+     * Sets thumbnail value
+     * 
+     * @param thumbnail
+     * @return Album
+     */
+    public Album Album.setThumbnail(String thumbnail) {
+        this.thumbnail = thumbnail;
+        return this;
+    }
+    
+    /**
      * This `equals` implementation is specific for JPA entities and uses 
      * the entity identifier for it, following the article in 
      * https://vladmihalcea.com/2016/06/06/how-to-implement-equals-and-hashcode-using-the-jpa-entity-identifier/
@@ -129,7 +169,9 @@ privileged aspect Album_Roo_JavaBean {
         return "Album {" + 
                 "id='" + id + '\'' + 
                 ", version='" + version + '\'' + 
-                ", title='" + title + '\'' + "}" + super.toString();
+                ", title='" + title + '\'' + 
+                ", description='" + description + '\'' + 
+                ", thumbnail='" + thumbnail + '\'' + "}" + super.toString();
     }
     
 }

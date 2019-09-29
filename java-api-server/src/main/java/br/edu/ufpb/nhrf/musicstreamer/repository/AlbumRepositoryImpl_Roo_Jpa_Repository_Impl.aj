@@ -26,6 +26,18 @@ privileged aspect AlbumRepositoryImpl_Roo_Jpa_Repository_Impl {
     public static final String AlbumRepositoryImpl.TITLE = "title";
     
     /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    public static final String AlbumRepositoryImpl.DESCRIPTION = "description";
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    public static final String AlbumRepositoryImpl.THUMBNAIL = "thumbnail";
+    
+    /**
      * TODO Auto-generated method documentation
      * 
      * @param globalSearch
@@ -38,11 +50,13 @@ privileged aspect AlbumRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<Album> query = from(album);
         
-        Path<?>[] paths = new Path<?>[] {album.title};        
+        Path<?>[] paths = new Path<?>[] {album.title,album.description,album.thumbnail};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
-			.map(TITLE, album.title);
+			.map(TITLE, album.title)
+			.map(DESCRIPTION, album.description)
+			.map(THUMBNAIL, album.thumbnail);
         
         applyPagination(pageable, query, mapping);
         applyOrderById(query);
@@ -64,14 +78,16 @@ privileged aspect AlbumRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<Album> query = from(album);
         
-        Path<?>[] paths = new Path<?>[] {album.title};        
+        Path<?>[] paths = new Path<?>[] {album.title,album.description,album.thumbnail};        
         applyGlobalSearch(globalSearch, query, paths);
         
         // Also, filter by the provided ids
         query.where(album.id.in(ids));
         
         AttributeMappingBuilder mapping = buildMapper()
-			.map(TITLE, album.title);
+			.map(TITLE, album.title)
+			.map(DESCRIPTION, album.description)
+			.map(THUMBNAIL, album.thumbnail);
         
         applyPagination(pageable, query, mapping);
         applyOrderById(query);

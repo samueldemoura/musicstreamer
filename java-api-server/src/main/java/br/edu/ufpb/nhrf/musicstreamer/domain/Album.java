@@ -59,4 +59,17 @@ public class Album {
     @RooJpaRelation(type = JpaRelationType.AGGREGATION)
     @NotNull
     private List<Track> tracks = new ArrayList<Track>();
+
+    /**
+     * TODO Auto-generated attribute documentation
+     *
+     */
+    private String description;
+
+    /**
+     * TODO Auto-generated attribute documentation
+     *
+     */
+    @NotNull
+    private String thumbnail;
 }

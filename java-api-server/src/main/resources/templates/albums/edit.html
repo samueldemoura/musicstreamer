@@ -50,6 +50,22 @@
       <span id="title-error" class="help-block" data-th-if="${#fields.hasErrors('title')}" data-th-errors="*{title}">Error message.</span>
   </div>
 </div>
+<div class="form-group has-error has-feedback" data-z="3afb57da" id="album-description-field" data-th-classappend="${#fields.hasErrors('description')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="description" class="col-md-3 control-label" data-th-text="#{label_album_description}">description</label>
+  <div class="col-md-6">
+    <input id="description" name="description" data-th-value="*{{description}}" type="text" class="form-control" placeholder="description" data-th-placeholder="#{label_album_description}" data-toggle="tooltip" aria-describedby="descriptionStatus" />
+      <span data-th-classappend="${#fields.hasErrors('description')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('description')}" aria-hidden="true"></span>
+      <span id="description-error" class="help-block" data-th-if="${#fields.hasErrors('description')}" data-th-errors="*{description}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="e3bbfc9a" id="album-thumbnail-field" data-th-classappend="${#fields.hasErrors('thumbnail')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="thumbnail" class="col-md-3 control-label" data-th-text="#{label_album_thumbnail}">thumbnail</label>
+  <div class="col-md-6">
+    <input id="thumbnail" name="thumbnail" data-th-value="*{{thumbnail}}" type="text" class="form-control" placeholder="thumbnail" data-th-placeholder="#{label_album_thumbnail}" data-toggle="tooltip" aria-describedby="thumbnailStatus" required="required" />
+      <span data-th-classappend="${#fields.hasErrors('thumbnail')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('thumbnail')}" aria-hidden="true"></span>
+      <span id="thumbnail-error" class="help-block" data-th-if="${#fields.hasErrors('thumbnail')}" data-th-errors="*{thumbnail}">Error message.</span>
+  </div>
+</div>
              </fieldset>
 
 
