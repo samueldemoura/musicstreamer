@@ -71,42 +71,22 @@ privileged aspect Track_Roo_JavaBean {
     }
     
     /**
-     * Gets album value
+     * Gets thumbnail value
      * 
-     * @return Album
+     * @return String
      */
-    public Album Track.getAlbum() {
-        return this.album;
+    public String Track.getThumbnail() {
+        return this.thumbnail;
     }
     
     /**
-     * Sets album value
+     * Sets thumbnail value
      * 
-     * @param album
+     * @param thumbnail
      * @return Track
      */
-    public Track Track.setAlbum(Album album) {
-        this.album = album;
-        return this;
-    }
-    
-    /**
-     * Gets artist value
-     * 
-     * @return Artist
-     */
-    public Artist Track.getArtist() {
-        return this.artist;
-    }
-    
-    /**
-     * Sets artist value
-     * 
-     * @param artist
-     * @return Track
-     */
-    public Track Track.setArtist(Artist artist) {
-        this.artist = artist;
+    public Track Track.setThumbnail(String thumbnail) {
+        this.thumbnail = thumbnail;
         return this;
     }
     
@@ -131,22 +111,42 @@ privileged aspect Track_Roo_JavaBean {
     }
     
     /**
-     * Gets thumbnail value
+     * Gets artist value
      * 
-     * @return String
+     * @return Artist
      */
-    public String Track.getThumbnail() {
-        return this.thumbnail;
+    public Artist Track.getArtist() {
+        return this.artist;
     }
     
     /**
-     * Sets thumbnail value
+     * Sets artist value
      * 
-     * @param thumbnail
+     * @param artist
      * @return Track
      */
-    public Track Track.setThumbnail(String thumbnail) {
-        this.thumbnail = thumbnail;
+    public Track Track.setArtist(Artist artist) {
+        this.artist = artist;
+        return this;
+    }
+    
+    /**
+     * Gets album value
+     * 
+     * @return Album
+     */
+    public Album Track.getAlbum() {
+        return this.album;
+    }
+    
+    /**
+     * Sets album value
+     * 
+     * @param album
+     * @return Track
+     */
+    public Track Track.setAlbum(Album album) {
+        this.album = album;
         return this;
     }
     
@@ -190,8 +190,8 @@ privileged aspect Track_Roo_JavaBean {
                 "id='" + id + '\'' + 
                 ", version='" + version + '\'' + 
                 ", title='" + title + '\'' + 
-                ", file='" + file + '\'' + 
-                ", thumbnail='" + thumbnail + '\'' + "}" + super.toString();
+                ", thumbnail='" + thumbnail + '\'' + 
+                ", file='" + file + '\'' + "}" + super.toString();
     }
     
 }

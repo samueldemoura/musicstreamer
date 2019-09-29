@@ -4,6 +4,7 @@
 package br.edu.ufpb.nhrf.musicstreamer.web;
 
 import br.edu.ufpb.nhrf.musicstreamer.domain.Artist;
+import br.edu.ufpb.nhrf.musicstreamer.domain.ArtistInfo;
 import br.edu.ufpb.nhrf.musicstreamer.service.api.ArtistService;
 import br.edu.ufpb.nhrf.musicstreamer.web.ArtistsCollectionJsonController;
 import br.edu.ufpb.nhrf.musicstreamer.web.ArtistsItemJsonController;
@@ -76,9 +77,9 @@ privileged aspect ArtistsCollectionJsonController_Roo_JSON {
      * @return ResponseEntity
      */
     @GetMapping(name = "list")
-    public ResponseEntity<Page<Artist>> ArtistsCollectionJsonController.list(GlobalSearch globalSearch, Pageable pageable) {
+    public ResponseEntity<Page<ArtistInfo>> ArtistsCollectionJsonController.list(GlobalSearch globalSearch, Pageable pageable) {
         
-        Page<Artist> artists = getArtistService().findAll(globalSearch, pageable);
+        Page<ArtistInfo> artists = getArtistService().findAll(globalSearch, pageable);
         return ResponseEntity.ok(artists);
     }
     

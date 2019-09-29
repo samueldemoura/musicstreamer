@@ -4,9 +4,11 @@
 package br.edu.ufpb.nhrf.musicstreamer.repository;
 
 import br.edu.ufpb.nhrf.musicstreamer.domain.Album;
+import br.edu.ufpb.nhrf.musicstreamer.domain.AlbumInfo;
 import br.edu.ufpb.nhrf.musicstreamer.domain.QAlbum;
 import br.edu.ufpb.nhrf.musicstreamer.repository.AlbumRepositoryImpl;
 import com.querydsl.core.types.Path;
+import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.JPQLQuery;
 import io.springlets.data.domain.GlobalSearch;
 import io.springlets.data.jpa.repository.support.QueryDslRepositorySupportExt.AttributeMappingBuilder;
@@ -29,13 +31,19 @@ privileged aspect AlbumRepositoryImpl_Roo_Jpa_Repository_Impl {
      * TODO Auto-generated attribute documentation
      * 
      */
+    public static final String AlbumRepositoryImpl.THUMBNAIL = "thumbnail";
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
     public static final String AlbumRepositoryImpl.DESCRIPTION = "description";
     
     /**
      * TODO Auto-generated attribute documentation
      * 
      */
-    public static final String AlbumRepositoryImpl.THUMBNAIL = "thumbnail";
+    public static final String AlbumRepositoryImpl.ID = "id";
     
     /**
      * TODO Auto-generated method documentation
@@ -44,24 +52,23 @@ privileged aspect AlbumRepositoryImpl_Roo_Jpa_Repository_Impl {
      * @param pageable
      * @return Page
      */
-    public Page<Album> AlbumRepositoryImpl.findAll(GlobalSearch globalSearch, Pageable pageable) {
+    public Page<AlbumInfo> AlbumRepositoryImpl.findAll(GlobalSearch globalSearch, Pageable pageable) {
         
         QAlbum album = QAlbum.album;
         
         JPQLQuery<Album> query = from(album);
         
-        Path<?>[] paths = new Path<?>[] {album.title,album.description,album.thumbnail};        
+        Path<?>[] paths = new Path<?>[] {album.id,album.title};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
-			.map(TITLE, album.title)
-			.map(DESCRIPTION, album.description)
-			.map(THUMBNAIL, album.thumbnail);
+			.map(ID, album.id)
+			.map(TITLE, album.title);
         
         applyPagination(pageable, query, mapping);
         applyOrderById(query);
         
-        return loadPage(query, pageable, album);
+        return loadPage(query, pageable, Projections.constructor(AlbumInfo.class, album.id, album.title ));
     }
     
     /**
@@ -72,27 +79,26 @@ privileged aspect AlbumRepositoryImpl_Roo_Jpa_Repository_Impl {
      * @param pageable
      * @return Page
      */
-    public Page<Album> AlbumRepositoryImpl.findAllByIdsIn(List<Long> ids, GlobalSearch globalSearch, Pageable pageable) {
+    public Page<AlbumInfo> AlbumRepositoryImpl.findAllByIdsIn(List<Long> ids, GlobalSearch globalSearch, Pageable pageable) {
         
         QAlbum album = QAlbum.album;
         
         JPQLQuery<Album> query = from(album);
         
-        Path<?>[] paths = new Path<?>[] {album.title,album.description,album.thumbnail};        
+        Path<?>[] paths = new Path<?>[] {album.id,album.title};        
         applyGlobalSearch(globalSearch, query, paths);
         
         // Also, filter by the provided ids
         query.where(album.id.in(ids));
         
         AttributeMappingBuilder mapping = buildMapper()
-			.map(TITLE, album.title)
-			.map(DESCRIPTION, album.description)
-			.map(THUMBNAIL, album.thumbnail);
+			.map(ID, album.id)
+			.map(TITLE, album.title);
         
         applyPagination(pageable, query, mapping);
         applyOrderById(query);
         
-        return loadPage(query, pageable, album);
+        return loadPage(query, pageable, Projections.constructor(AlbumInfo.class, album.id, album.title ));
     }
     
 }

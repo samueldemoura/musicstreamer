@@ -4,6 +4,7 @@
 package br.edu.ufpb.nhrf.musicstreamer.service.api;
 
 import br.edu.ufpb.nhrf.musicstreamer.domain.Album;
+import br.edu.ufpb.nhrf.musicstreamer.domain.AlbumInfo;
 import br.edu.ufpb.nhrf.musicstreamer.service.api.AlbumService;
 import io.springlets.data.domain.GlobalSearch;
 import java.util.List;
@@ -87,7 +88,7 @@ privileged aspect AlbumService_Roo_Service {
      * @param pageable
      * @return Page
      */
-    public abstract Page<Album> AlbumService.findAll(GlobalSearch globalSearch, Pageable pageable);
+    public abstract Page<AlbumInfo> AlbumService.findAll(GlobalSearch globalSearch, Pageable pageable);
     
     /**
      * TODO Auto-generated method documentation
@@ -97,7 +98,7 @@ privileged aspect AlbumService_Roo_Service {
      * @param pageable
      * @return Page
      */
-    public abstract Page<Album> AlbumService.findAllByIdsIn(List<Long> ids, GlobalSearch globalSearch, Pageable pageable);
+    public abstract Page<AlbumInfo> AlbumService.findAllByIdsIn(List<Long> ids, GlobalSearch globalSearch, Pageable pageable);
     
     /**
      * TODO Auto-generated method documentation

@@ -20,7 +20,7 @@ import javax.persistence.ManyToOne;
  */
 @RooJavaBean
 @RooToString
-@RooJpaEntity
+@RooJpaEntity(entityFormatExpression = "#{artist} - #{title}")
 @RooEquals(isJpaEntity = true)
 public class Track {
 
@@ -50,18 +50,7 @@ public class Track {
      * TODO Auto-generated attribute documentation
      *
      */
-    @ManyToOne(fetch = FetchType.LAZY)
-    @EntityFormat
-    private Album album;
-
-    /**
-     * TODO Auto-generated attribute documentation
-     *
-     */
-    @ManyToOne(fetch = FetchType.LAZY)
-    @EntityFormat
-    @NotNull
-    private Artist artist;
+    private String thumbnail;
 
     /**
      * TODO Auto-generated attribute documentation
@@ -74,6 +63,15 @@ public class Track {
      * TODO Auto-generated attribute documentation
      *
      */
-    @NotNull
-    private String thumbnail;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @EntityFormat
+    private Artist artist;
+
+    /**
+     * TODO Auto-generated attribute documentation
+     *
+     */
+    @ManyToOne(fetch = FetchType.EAGER)
+    @EntityFormat
+    private Album album;
 }

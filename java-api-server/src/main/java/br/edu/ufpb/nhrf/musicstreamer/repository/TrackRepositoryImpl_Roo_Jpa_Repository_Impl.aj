@@ -32,13 +32,7 @@ privileged aspect TrackRepositoryImpl_Roo_Jpa_Repository_Impl {
      * TODO Auto-generated attribute documentation
      * 
      */
-    public static final String TrackRepositoryImpl.ALBUM = "album";
-    
-    /**
-     * TODO Auto-generated attribute documentation
-     * 
-     */
-    public static final String TrackRepositoryImpl.ARTIST = "artist";
+    public static final String TrackRepositoryImpl.THUMBNAIL = "thumbnail";
     
     /**
      * TODO Auto-generated attribute documentation
@@ -50,7 +44,13 @@ privileged aspect TrackRepositoryImpl_Roo_Jpa_Repository_Impl {
      * TODO Auto-generated attribute documentation
      * 
      */
-    public static final String TrackRepositoryImpl.THUMBNAIL = "thumbnail";
+    public static final String TrackRepositoryImpl.ARTIST = "artist";
+    
+    /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    public static final String TrackRepositoryImpl.ALBUM = "album";
     
     /**
      * TODO Auto-generated method documentation
@@ -65,15 +65,15 @@ privileged aspect TrackRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<Track> query = from(track);
         
-        Path<?>[] paths = new Path<?>[] {track.title,track.album,track.artist,track.file,track.thumbnail};        
+        Path<?>[] paths = new Path<?>[] {track.title,track.thumbnail,track.file,track.artist,track.album};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
 			.map(TITLE, track.title)
-			.map(ALBUM, track.album)
-			.map(ARTIST, track.artist)
+			.map(THUMBNAIL, track.thumbnail)
 			.map(FILE, track.file)
-			.map(THUMBNAIL, track.thumbnail);
+			.map(ARTIST, track.artist)
+			.map(ALBUM, track.album);
         
         applyPagination(pageable, query, mapping);
         applyOrderById(query);
@@ -95,7 +95,7 @@ privileged aspect TrackRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         JPQLQuery<Track> query = from(track);
         
-        Path<?>[] paths = new Path<?>[] {track.title,track.album,track.artist,track.file,track.thumbnail};        
+        Path<?>[] paths = new Path<?>[] {track.title,track.thumbnail,track.file,track.artist,track.album};        
         applyGlobalSearch(globalSearch, query, paths);
         
         // Also, filter by the provided ids
@@ -103,10 +103,10 @@ privileged aspect TrackRepositoryImpl_Roo_Jpa_Repository_Impl {
         
         AttributeMappingBuilder mapping = buildMapper()
 			.map(TITLE, track.title)
-			.map(ALBUM, track.album)
-			.map(ARTIST, track.artist)
+			.map(THUMBNAIL, track.thumbnail)
 			.map(FILE, track.file)
-			.map(THUMBNAIL, track.thumbnail);
+			.map(ARTIST, track.artist)
+			.map(ALBUM, track.album);
         
         applyPagination(pageable, query, mapping);
         applyOrderById(query);
@@ -131,15 +131,15 @@ privileged aspect TrackRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(album, "album is required");
         
         query.where(track.album.eq(album));
-        Path<?>[] paths = new Path<?>[] {track.title,track.album,track.artist,track.file,track.thumbnail};        
+        Path<?>[] paths = new Path<?>[] {track.title,track.thumbnail,track.file,track.artist,track.album};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
 			.map(TITLE, track.title)
-			.map(ALBUM, track.album)
-			.map(ARTIST, track.artist)
+			.map(THUMBNAIL, track.thumbnail)
 			.map(FILE, track.file)
-			.map(THUMBNAIL, track.thumbnail);
+			.map(ARTIST, track.artist)
+			.map(ALBUM, track.album);
         
         applyPagination(pageable, query, mapping);
         applyOrderById(query);
@@ -164,15 +164,15 @@ privileged aspect TrackRepositoryImpl_Roo_Jpa_Repository_Impl {
         Assert.notNull(artist, "artist is required");
         
         query.where(track.artist.eq(artist));
-        Path<?>[] paths = new Path<?>[] {track.title,track.album,track.artist,track.file,track.thumbnail};        
+        Path<?>[] paths = new Path<?>[] {track.title,track.thumbnail,track.file,track.artist,track.album};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
 			.map(TITLE, track.title)
-			.map(ALBUM, track.album)
-			.map(ARTIST, track.artist)
+			.map(THUMBNAIL, track.thumbnail)
 			.map(FILE, track.file)
-			.map(THUMBNAIL, track.thumbnail);
+			.map(ARTIST, track.artist)
+			.map(ALBUM, track.album);
         
         applyPagination(pageable, query, mapping);
         applyOrderById(query);

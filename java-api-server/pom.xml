@@ -103,6 +103,11 @@
                 <version>${springlets.version}</version>
             </dependency>
         <dependency>
+                <groupId>org.springframework.roo</groupId>
+                <artifactId>org.springframework.roo.querydsl.processor</artifactId>
+                <version>2.0.0.RELEASE</version>
+            </dependency>
+        <dependency>
                 <groupId>io.tracee.binding</groupId>
                 <artifactId>tracee-springmvc</artifactId>
                 <version>${tracee.version}</version>
@@ -253,11 +258,6 @@
                 <artifactId>ie10-viewport-bug-workaround</artifactId>
                 <version>${bootstrap.ie10-viewport-bug-workaround.version}</version>
             </dependency>
-        <dependency>
-                <groupId>org.springframework.roo</groupId>
-                <artifactId>org.springframework.roo.querydsl.processor</artifactId>
-                <version>2.0.0.RELEASE</version>
-            </dependency>
         </dependencies>
   </dependencyManagement>
 
@@ -335,6 +335,14 @@
     <dependency>
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>
+        </dependency>
+    <dependency>
+            <groupId>com.querydsl</groupId>
+            <artifactId>querydsl-jpa</artifactId>
+        </dependency>
+    <dependency>
+            <groupId>org.springframework.roo</groupId>
+            <artifactId>org.springframework.roo.querydsl.processor</artifactId>
         </dependency>
     <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -471,14 +479,6 @@
         <dependency>
             <groupId>org.webjars.bower</groupId>
             <artifactId>ie10-viewport-bug-workaround</artifactId>
-        </dependency>
-    <dependency>
-            <groupId>com.querydsl</groupId>
-            <artifactId>querydsl-jpa</artifactId>
-        </dependency>
-    <dependency>
-            <groupId>org.springframework.roo</groupId>
-            <artifactId>org.springframework.roo.querydsl.processor</artifactId>
         </dependency>
     </dependencies>
 

@@ -13,7 +13,7 @@ privileged aspect Artist_Roo_Jpa_Entity {
     
     declare @type: Artist: @Entity;
     
-    declare @type: Artist: @EntityFormat;
+    declare @type: Artist: @EntityFormat("#{name}");
     
     /**
      * TODO Auto-generated attribute documentation

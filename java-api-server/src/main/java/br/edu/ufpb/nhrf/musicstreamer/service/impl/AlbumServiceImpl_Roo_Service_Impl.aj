@@ -4,6 +4,7 @@
 package br.edu.ufpb.nhrf.musicstreamer.service.impl;
 
 import br.edu.ufpb.nhrf.musicstreamer.domain.Album;
+import br.edu.ufpb.nhrf.musicstreamer.domain.AlbumInfo;
 import br.edu.ufpb.nhrf.musicstreamer.domain.Track;
 import br.edu.ufpb.nhrf.musicstreamer.repository.AlbumRepository;
 import br.edu.ufpb.nhrf.musicstreamer.service.api.TrackService;
@@ -261,7 +262,7 @@ privileged aspect AlbumServiceImpl_Roo_Service_Impl {
      * @param pageable
      * @return Page
      */
-    public Page<Album> AlbumServiceImpl.findAll(GlobalSearch globalSearch, Pageable pageable) {
+    public Page<AlbumInfo> AlbumServiceImpl.findAll(GlobalSearch globalSearch, Pageable pageable) {
         return getAlbumRepository().findAll(globalSearch, pageable);
     }
     
@@ -273,7 +274,7 @@ privileged aspect AlbumServiceImpl_Roo_Service_Impl {
      * @param pageable
      * @return Page
      */
-    public Page<Album> AlbumServiceImpl.findAllByIdsIn(List<Long> ids, GlobalSearch globalSearch, Pageable pageable) {
+    public Page<AlbumInfo> AlbumServiceImpl.findAllByIdsIn(List<Long> ids, GlobalSearch globalSearch, Pageable pageable) {
         return getAlbumRepository().findAllByIdsIn(ids, globalSearch, pageable);
     }
     

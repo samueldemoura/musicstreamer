@@ -7,11 +7,9 @@ import br.edu.ufpb.nhrf.musicstreamer.config.jackson.DomainModelModule;
 import br.edu.ufpb.nhrf.musicstreamer.domain.Album;
 import br.edu.ufpb.nhrf.musicstreamer.domain.Artist;
 import br.edu.ufpb.nhrf.musicstreamer.domain.Track;
-import br.edu.ufpb.nhrf.musicstreamer.domain.UserAccount;
 import br.edu.ufpb.nhrf.musicstreamer.web.AlbumJsonMixin;
 import br.edu.ufpb.nhrf.musicstreamer.web.ArtistJsonMixin;
 import br.edu.ufpb.nhrf.musicstreamer.web.TrackJsonMixin;
-import br.edu.ufpb.nhrf.musicstreamer.web.UserAccountJsonMixin;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import org.springframework.boot.jackson.JsonComponent;
 
@@ -31,7 +29,6 @@ privileged aspect DomainModelModule_Roo_DomainModelModule {
         setMixInAnnotation(Album.class, AlbumJsonMixin.class);
         setMixInAnnotation(Artist.class, ArtistJsonMixin.class);
         setMixInAnnotation(Track.class, TrackJsonMixin.class);
-        setMixInAnnotation(UserAccount.class, UserAccountJsonMixin.class);
     }
 
 }

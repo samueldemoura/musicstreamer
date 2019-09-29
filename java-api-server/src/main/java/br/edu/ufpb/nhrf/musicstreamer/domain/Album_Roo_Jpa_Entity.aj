@@ -13,7 +13,7 @@ privileged aspect Album_Roo_Jpa_Entity {
     
     declare @type: Album: @Entity;
     
-    declare @type: Album: @EntityFormat;
+    declare @type: Album: @EntityFormat("#{title}");
     
     /**
      * TODO Auto-generated attribute documentation

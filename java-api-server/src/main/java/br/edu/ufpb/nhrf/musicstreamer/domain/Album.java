@@ -8,14 +8,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Version;
 import javax.validation.constraints.NotNull;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import org.springframework.roo.addon.jpa.annotations.entity.JpaRelationType;
 import org.springframework.roo.addon.jpa.annotations.entity.RooJpaRelation;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * = Album
@@ -25,7 +23,7 @@ import java.util.List;
  */
 @RooJavaBean
 @RooToString
-@RooJpaEntity
+@RooJpaEntity(entityFormatExpression = "#{title}")
 @RooEquals(isJpaEntity = true)
 public class Album {
 
@@ -57,14 +55,7 @@ public class Album {
      */
     @OneToMany(cascade = { javax.persistence.CascadeType.MERGE, javax.persistence.CascadeType.PERSIST }, fetch = FetchType.LAZY, mappedBy = "album")
     @RooJpaRelation(type = JpaRelationType.AGGREGATION)
-    @NotNull
     private List<Track> tracks = new ArrayList<Track>();
-
-    /**
-     * TODO Auto-generated attribute documentation
-     *
-     */
-    private String description;
 
     /**
      * TODO Auto-generated attribute documentation
@@ -72,4 +63,10 @@ public class Album {
      */
     @NotNull
     private String thumbnail;
+
+    /**
+     * TODO Auto-generated attribute documentation
+     *
+     */
+    private String description;
 }

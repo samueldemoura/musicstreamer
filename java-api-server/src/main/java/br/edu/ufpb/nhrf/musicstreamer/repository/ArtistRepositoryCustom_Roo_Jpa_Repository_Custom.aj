@@ -3,7 +3,7 @@
 
 package br.edu.ufpb.nhrf.musicstreamer.repository;
 
-import br.edu.ufpb.nhrf.musicstreamer.domain.Artist;
+import br.edu.ufpb.nhrf.musicstreamer.domain.ArtistInfo;
 import br.edu.ufpb.nhrf.musicstreamer.repository.ArtistRepositoryCustom;
 import io.springlets.data.domain.GlobalSearch;
 import java.util.List;
@@ -19,7 +19,7 @@ privileged aspect ArtistRepositoryCustom_Roo_Jpa_Repository_Custom {
      * @param pageable
      * @return Page
      */
-    public abstract Page<Artist> ArtistRepositoryCustom.findAll(GlobalSearch globalSearch, Pageable pageable);
+    public abstract Page<ArtistInfo> ArtistRepositoryCustom.findAll(GlobalSearch globalSearch, Pageable pageable);
     
     /**
      * TODO Auto-generated method documentation
@@ -29,6 +29,6 @@ privileged aspect ArtistRepositoryCustom_Roo_Jpa_Repository_Custom {
      * @param pageable
      * @return Page
      */
-    public abstract Page<Artist> ArtistRepositoryCustom.findAllByIdsIn(List<Long> ids, GlobalSearch globalSearch, Pageable pageable);
+    public abstract Page<ArtistInfo> ArtistRepositoryCustom.findAllByIdsIn(List<Long> ids, GlobalSearch globalSearch, Pageable pageable);
     
 }

@@ -50,6 +50,33 @@
       <span id="title-error" class="help-block" data-th-if="${#fields.hasErrors('title')}" data-th-errors="*{title}">Error message.</span>
   </div>
 </div>
+<div class="form-group has-error has-feedback" data-z="63c683e" id="track-thumbnail-field" data-th-classappend="${#fields.hasErrors('thumbnail')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="thumbnail" class="col-md-3 control-label" data-th-text="#{label_track_thumbnail}">thumbnail</label>
+  <div class="col-md-6">
+    <input id="thumbnail" name="thumbnail" data-th-value="*{{thumbnail}}" type="text" class="form-control" placeholder="thumbnail" data-th-placeholder="#{label_track_thumbnail}" data-toggle="tooltip" aria-describedby="thumbnailStatus" />
+      <span data-th-classappend="${#fields.hasErrors('thumbnail')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('thumbnail')}" aria-hidden="true"></span>
+      <span id="thumbnail-error" class="help-block" data-th-if="${#fields.hasErrors('thumbnail')}" data-th-errors="*{thumbnail}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="8f27b420" id="track-file-field" data-th-classappend="${#fields.hasErrors('file')}? 'has-error has-feedback'" data-th-class="form-group">
+  <label for="file" class="col-md-3 control-label" data-th-text="#{label_track_file}">file</label>
+  <div class="col-md-6">
+    <input id="file" name="file" data-th-value="*{{file}}" type="text" class="form-control" placeholder="file" data-th-placeholder="#{label_track_file}" data-toggle="tooltip" aria-describedby="fileStatus" required="required" />
+      <span data-th-classappend="${#fields.hasErrors('file')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('file')}" aria-hidden="true"></span>
+      <span id="file-error" class="help-block" data-th-if="${#fields.hasErrors('file')}" data-th-errors="*{file}">Error message.</span>
+  </div>
+</div>
+<div class="form-group has-error has-feedback" data-z="4c6eda80" id="track-artist-field" data-th-classappend="${#fields.hasErrors('artist')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('ArtistsCollectionThymeleafController')}">
+    <label for="artist" class="col-md-3 control-label" data-th-text="#{label_track_artist}">Artist</label>
+    <div class="col-md-6">
+      <!-- Select2 -->
+      <select data-th-field="*{artist}" class="form-control dropdown-select-ajax" data-allow-clear="true" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" data-data-placeholder="#{info_select_an_option}">
+          <option data-th-unless="*{artist} == null" data-th-value="*{artist.id}" data-th-text="*{{artist}}" selected="selected">Artist</option>
+      </select>
+      <span data-th-classappend="${#fields.hasErrors('artist')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('artist')}" aria-hidden="true"></span>
+      <span id="artist-error" class="help-block" data-th-if="${#fields.hasErrors('artist')}" data-th-errors="*{artist}">Error message.</span>
+    </div>
+</div>
 <div class="form-group has-error has-feedback" data-z="497a4b5e" id="track-album-field" data-th-classappend="${#fields.hasErrors('album')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('AlbumsCollectionThymeleafController')}">
     <label for="album" class="col-md-3 control-label" data-th-text="#{label_track_album}">Album</label>
     <div class="col-md-6">
@@ -60,33 +87,6 @@
       <span data-th-classappend="${#fields.hasErrors('album')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('album')}" aria-hidden="true"></span>
       <span id="album-error" class="help-block" data-th-if="${#fields.hasErrors('album')}" data-th-errors="*{album}">Error message.</span>
     </div>
-</div>
-<div class="form-group has-error has-feedback" data-z="4c6eda80" id="track-artist-field" data-th-classappend="${#fields.hasErrors('artist')}? 'has-error has-feedback'" data-th-class="form-group" data-th-with="collectionLink=${@linkBuilder.of('ArtistsCollectionThymeleafController')}">
-    <label for="artist" class="col-md-3 control-label" data-th-text="#{label_track_artist}">Artist</label>
-    <div class="col-md-6">
-      <!-- Select2 -->
-      <select data-th-field="*{artist}" class="form-control dropdown-select-ajax" data-allow-clear="false" data-data-ajax--url="${collectionLink.to('select2')}" data-ajax--cache="true" data-ajax--delay="250" data-ajax--data-type="json" required="required" data-data-placeholder="#{info_select_an_option}">
-          <option data-th-unless="*{artist} == null" data-th-value="*{artist.id}" data-th-text="*{{artist}}" selected="selected">Artist</option>
-      </select>
-      <span data-th-classappend="${#fields.hasErrors('artist')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('artist')}" aria-hidden="true"></span>
-      <span id="artist-error" class="help-block" data-th-if="${#fields.hasErrors('artist')}" data-th-errors="*{artist}">Error message.</span>
-    </div>
-</div>
-<div class="form-group has-error has-feedback" data-z="8f27b420" id="track-file-field" data-th-classappend="${#fields.hasErrors('file')}? 'has-error has-feedback'" data-th-class="form-group">
-  <label for="file" class="col-md-3 control-label" data-th-text="#{label_track_file}">file</label>
-  <div class="col-md-6">
-    <input id="file" name="file" data-th-value="*{{file}}" type="text" class="form-control" placeholder="file" data-th-placeholder="#{label_track_file}" data-toggle="tooltip" aria-describedby="fileStatus" required="required" />
-      <span data-th-classappend="${#fields.hasErrors('file')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('file')}" aria-hidden="true"></span>
-      <span id="file-error" class="help-block" data-th-if="${#fields.hasErrors('file')}" data-th-errors="*{file}">Error message.</span>
-  </div>
-</div>
-<div class="form-group has-error has-feedback" data-z="63c683e" id="track-thumbnail-field" data-th-classappend="${#fields.hasErrors('thumbnail')}? 'has-error has-feedback'" data-th-class="form-group">
-  <label for="thumbnail" class="col-md-3 control-label" data-th-text="#{label_track_thumbnail}">thumbnail</label>
-  <div class="col-md-6">
-    <input id="thumbnail" name="thumbnail" data-th-value="*{{thumbnail}}" type="text" class="form-control" placeholder="thumbnail" data-th-placeholder="#{label_track_thumbnail}" data-toggle="tooltip" aria-describedby="thumbnailStatus" required="required" />
-      <span data-th-classappend="${#fields.hasErrors('thumbnail')}? 'glyphicon glyphicon-remove form-control-feedback'" class="glyphicon glyphicon-remove form-control-feedback" data-th-if="${#fields.hasErrors('thumbnail')}" aria-hidden="true"></span>
-      <span id="thumbnail-error" class="help-block" data-th-if="${#fields.hasErrors('thumbnail')}" data-th-errors="*{thumbnail}">Error message.</span>
-  </div>
 </div>
              </fieldset>
 

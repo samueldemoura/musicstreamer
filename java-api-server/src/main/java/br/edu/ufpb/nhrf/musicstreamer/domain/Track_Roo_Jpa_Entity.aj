@@ -11,7 +11,7 @@ privileged aspect Track_Roo_Jpa_Entity {
     
     declare @type: Track: @Entity;
     
-    declare @type: Track: @EntityFormat;
+    declare @type: Track: @EntityFormat("#{artist} - #{title}");
     
     /**
      * TODO Auto-generated attribute documentation

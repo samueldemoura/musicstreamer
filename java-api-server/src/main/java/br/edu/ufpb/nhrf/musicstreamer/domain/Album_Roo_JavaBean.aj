@@ -91,26 +91,6 @@ privileged aspect Album_Roo_JavaBean {
     }
     
     /**
-     * Gets description value
-     * 
-     * @return String
-     */
-    public String Album.getDescription() {
-        return this.description;
-    }
-    
-    /**
-     * Sets description value
-     * 
-     * @param description
-     * @return Album
-     */
-    public Album Album.setDescription(String description) {
-        this.description = description;
-        return this;
-    }
-    
-    /**
      * Gets thumbnail value
      * 
      * @return String
@@ -127,6 +107,26 @@ privileged aspect Album_Roo_JavaBean {
      */
     public Album Album.setThumbnail(String thumbnail) {
         this.thumbnail = thumbnail;
+        return this;
+    }
+    
+    /**
+     * Gets description value
+     * 
+     * @return String
+     */
+    public String Album.getDescription() {
+        return this.description;
+    }
+    
+    /**
+     * Sets description value
+     * 
+     * @param description
+     * @return Album
+     */
+    public Album Album.setDescription(String description) {
+        this.description = description;
         return this;
     }
     
@@ -170,8 +170,8 @@ privileged aspect Album_Roo_JavaBean {
                 "id='" + id + '\'' + 
                 ", version='" + version + '\'' + 
                 ", title='" + title + '\'' + 
-                ", description='" + description + '\'' + 
-                ", thumbnail='" + thumbnail + '\'' + "}" + super.toString();
+                ", thumbnail='" + thumbnail + '\'' + 
+                ", description='" + description + '\'' + "}" + super.toString();
     }
     
 }

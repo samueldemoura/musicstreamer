@@ -4,9 +4,11 @@
 package br.edu.ufpb.nhrf.musicstreamer.repository;
 
 import br.edu.ufpb.nhrf.musicstreamer.domain.Artist;
+import br.edu.ufpb.nhrf.musicstreamer.domain.ArtistInfo;
 import br.edu.ufpb.nhrf.musicstreamer.domain.QArtist;
 import br.edu.ufpb.nhrf.musicstreamer.repository.ArtistRepositoryImpl;
 import com.querydsl.core.types.Path;
+import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.JPQLQuery;
 import io.springlets.data.domain.GlobalSearch;
 import io.springlets.data.jpa.repository.support.QueryDslRepositorySupportExt.AttributeMappingBuilder;
@@ -26,28 +28,35 @@ privileged aspect ArtistRepositoryImpl_Roo_Jpa_Repository_Impl {
     public static final String ArtistRepositoryImpl.NAME = "name";
     
     /**
+     * TODO Auto-generated attribute documentation
+     * 
+     */
+    public static final String ArtistRepositoryImpl.ID = "id";
+    
+    /**
      * TODO Auto-generated method documentation
      * 
      * @param globalSearch
      * @param pageable
      * @return Page
      */
-    public Page<Artist> ArtistRepositoryImpl.findAll(GlobalSearch globalSearch, Pageable pageable) {
+    public Page<ArtistInfo> ArtistRepositoryImpl.findAll(GlobalSearch globalSearch, Pageable pageable) {
         
         QArtist artist = QArtist.artist;
         
         JPQLQuery<Artist> query = from(artist);
         
-        Path<?>[] paths = new Path<?>[] {artist.name};        
+        Path<?>[] paths = new Path<?>[] {artist.id,artist.name};        
         applyGlobalSearch(globalSearch, query, paths);
         
         AttributeMappingBuilder mapping = buildMapper()
+			.map(ID, artist.id)
 			.map(NAME, artist.name);
         
         applyPagination(pageable, query, mapping);
         applyOrderById(query);
         
-        return loadPage(query, pageable, artist);
+        return loadPage(query, pageable, Projections.constructor(ArtistInfo.class, artist.id, artist.name ));
     }
     
     /**
@@ -58,25 +67,26 @@ privileged aspect ArtistRepositoryImpl_Roo_Jpa_Repository_Impl {
      * @param pageable
      * @return Page
      */
-    public Page<Artist> ArtistRepositoryImpl.findAllByIdsIn(List<Long> ids, GlobalSearch globalSearch, Pageable pageable) {
+    public Page<ArtistInfo> ArtistRepositoryImpl.findAllByIdsIn(List<Long> ids, GlobalSearch globalSearch, Pageable pageable) {
         
         QArtist artist = QArtist.artist;
         
         JPQLQuery<Artist> query = from(artist);
         
-        Path<?>[] paths = new Path<?>[] {artist.name};        
+        Path<?>[] paths = new Path<?>[] {artist.id,artist.name};        
         applyGlobalSearch(globalSearch, query, paths);
         
         // Also, filter by the provided ids
         query.where(artist.id.in(ids));
         
         AttributeMappingBuilder mapping = buildMapper()
+			.map(ID, artist.id)
 			.map(NAME, artist.name);
         
         applyPagination(pageable, query, mapping);
         applyOrderById(query);
         
-        return loadPage(query, pageable, artist);
+        return loadPage(query, pageable, Projections.constructor(ArtistInfo.class, artist.id, artist.name ));
     }
     
 }

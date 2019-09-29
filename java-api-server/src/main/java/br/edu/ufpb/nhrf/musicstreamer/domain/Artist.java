@@ -23,7 +23,7 @@ import org.springframework.roo.addon.jpa.annotations.entity.RooJpaRelation;
  */
 @RooJavaBean
 @RooToString
-@RooJpaEntity
+@RooJpaEntity(entityFormatExpression = "#{name}")
 @RooEquals(isJpaEntity = true)
 public class Artist {
 
