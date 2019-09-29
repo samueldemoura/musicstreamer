@@ -111,6 +111,46 @@ privileged aspect Track_Roo_JavaBean {
     }
     
     /**
+     * Gets file value
+     * 
+     * @return String
+     */
+    public String Track.getFile() {
+        return this.file;
+    }
+    
+    /**
+     * Sets file value
+     * 
+     * @param file
+     * @return Track
+     */
+    public Track Track.setFile(String file) {
+        this.file = file;
+        return this;
+    }
+    
+    /**
+     * Gets thumbnail value
+     * 
+     * @return String
+     */
+    public String Track.getThumbnail() {
+        return this.thumbnail;
+    }
+    
+    /**
+     * Sets thumbnail value
+     * 
+     * @param thumbnail
+     * @return Track
+     */
+    public Track Track.setThumbnail(String thumbnail) {
+        this.thumbnail = thumbnail;
+        return this;
+    }
+    
+    /**
      * This `equals` implementation is specific for JPA entities and uses 
      * the entity identifier for it, following the article in 
      * https://vladmihalcea.com/2016/06/06/how-to-implement-equals-and-hashcode-using-the-jpa-entity-identifier/
@@ -149,7 +189,9 @@ privileged aspect Track_Roo_JavaBean {
         return "Track {" + 
                 "id='" + id + '\'' + 
                 ", version='" + version + '\'' + 
-                ", title='" + title + '\'' + "}" + super.toString();
+                ", title='" + title + '\'' + 
+                ", file='" + file + '\'' + 
+                ", thumbnail='" + thumbnail + '\'' + "}" + super.toString();
     }
     
 }

@@ -62,4 +62,18 @@ public class Track {
     @EntityFormat
     @NotNull
     private Artist artist;
+
+    /**
+     * TODO Auto-generated attribute documentation
+     *
+     */
+    @NotNull
+    private String file;
+
+    /**
+     * TODO Auto-generated attribute documentation
+     *
+     */
+    @NotNull
+    private String thumbnail;
 }

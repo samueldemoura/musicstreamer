@@ -520,6 +520,12 @@ privileged aspect TracksCollectionThymeleafController_Roo_Thymeleaf {
         else if (columnName.equals("title")) {
             builder.addColumn(getMessageSource().getMessage("label_track_title", null, "Title", locale), "title", String.class.getName(), 100);
         }
+        else if (columnName.equals("file")) {
+            builder.addColumn(getMessageSource().getMessage("label_track_file", null, "File", locale), "file", String.class.getName(), 100);
+        }
+        else if (columnName.equals("thumbnail")) {
+            builder.addColumn(getMessageSource().getMessage("label_track_thumbnail", null, "Thumbnail", locale), "thumbnail", String.class.getName(), 100);
+        }
         }
         catch (ColumnBuilderException e) {
             String errorMessage = getMessageSource().getMessage("error_exportingErrorException", 
