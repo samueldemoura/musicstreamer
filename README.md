@@ -8,5 +8,5 @@ There's three components, divided into the three folders:
 
 ## Running
 - `java-api-server`: Requires JDK 8 and Maven installed. Then just run: `mvn spring-boot:run`
-- `node-proxy-server`: Requires node and npm installed. Then just run: `npm start`
+- `node-proxy-server`: Requires node and npm installed. Generate a private key file for your Firebase project, then dump it in `node-proxy-server/secrets/firebase-private-key.json`. Build the Webpack bundles from `react-client` and dump them in `node-proxy-server/static/`. Afterwards, run: `npm start`. Server should then be up at `http://localhost:3000`.
 - `react-client`: TODO.
