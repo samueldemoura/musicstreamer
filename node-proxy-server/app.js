@@ -1,3 +1,4 @@
+const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const createError = require('http-errors');
 const express = require('express');
@@ -17,21 +18,23 @@ const ref = firebase.initializeApp({
 
 const app = express();
 
+app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 // Use Firebase for session storage.
-express()
-  .use(session({
+express().use(
+  session({
     store: new FirebaseStore({
       database: ref.database(),
     }),
     secret: 'keyboard cat',
     resave: true,
     saveUninitialized: true,
-  }));
+  }),
+);
 
 // Serve index page.
 const router = express.Router();
@@ -48,7 +51,7 @@ app.use(express.static(path.join(__dirname, 'static')));
 
 // Proxy API requests to the Java server.
 // TODO: fix URL / read from env var
-const apiProxy = proxy('/api', { target: 'http://localhost:8080/api' });
+const apiProxy = proxy('/', { target: 'http://localhost:8080/api' });
 app.use(apiProxy);
 
 // Forward 404s to the error handler.
